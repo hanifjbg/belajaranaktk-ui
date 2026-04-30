@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", sans-serif;
+  
+  --color-wisdom: #8B5CF6;
+  --color-luminous: #FACC15;
+  --color-vibrant: #FB923C;
+  --color-lime: #84CC16;
+  
+  --radius-neo: 16px;
+  --radius-neo-lg: 24px;
+  
+  --shadow-neo: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-hover: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --popover: #ffffff;
+    --popover-foreground: #000000;
+    --primary: #8B5CF6;
+    --primary-foreground: #ffffff;
+    --secondary: #FACC15;
+    --secondary-foreground: #000000;
+    --muted: #f3f4f6;
+    --muted-foreground: #6b7280;
+    --accent: #FB923C;
+    --accent-foreground: #000000;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #000000;
+    --input: #000000;
+    --ring: #8B5CF6;
+  }
+
+  .dark {
+    --background: #121212;
+    --foreground: #ffffff;
+    --card: #1e1e1e;
+    --card-foreground: #ffffff;
+    --popover: #1e1e1e;
+    --popover-foreground: #ffffff;
+    --primary: #A78BFA;
+    --primary-foreground: #ffffff;
+    --secondary: #FDE047;
+    --secondary-foreground: #000000;
+    --muted: #2d2d2d;
+    --muted-foreground: #9ca3af;
+    --accent: #FCA5A5;
+    --accent-foreground: #000000;
+    --destructive: #f87171;
+    --destructive-foreground: #ffffff;
+    --border: #ffffff;
+    --input: #ffffff;
+    --ring: #A78BFA;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .neo-border {
+    border: 2px solid var(--border);
+  }
+  
+  .neo-shadow {
+    box-shadow: var(--shadow-neo);
+  }
+  
+  .neo-shadow-hover:hover {
+    box-shadow: var(--shadow-neo-hover);
+    transform: translate(2px, 2px);
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: grid-move 20s linear infinite;
+  }
+
+  .dark .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  }
+
+  @keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+  }
+}
